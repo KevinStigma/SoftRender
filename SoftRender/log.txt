@@ -1,0 +1,3 @@
+
+COB Reader Num Vertices: 114
+COB Reader found face list in .COB file data\sphere02.cob.
