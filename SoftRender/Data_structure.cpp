@@ -55,10 +55,10 @@ namespace zyk
 
 	void Camera::reset_viewport_matrix()
 	{
-		float alpha=0.5f*viewport_width-0.5f;
-		float beta=0.5f*viewport_height-0.5f;
-		mscr<<alpha,0,0,alpha,
-			0,-beta,0,beta,
+		float alpha=0.5f*viewport_width;
+		float beta=0.5f*viewport_height;
+		mscr<<alpha,0,0,alpha-0.5f,
+			0,-beta,0,-beta+viewport_height-0.5f,
 			0,0,1,0,
 			0,0,0,1;
 	}
@@ -115,9 +115,17 @@ namespace zyk
 
 	void PolyFace::draw_vertices(QPainter&painter)
 	{
-		painter.drawPoint(QPointF(tlist[0][0],tlist[0][1]));
-		painter.drawPoint(QPointF(tlist[1][0],tlist[1][1]));
-		painter.drawPoint(QPointF(tlist[2][0],tlist[2][1]));
+		QPen pen;
+		for(int i=0;i<3;i++)
+		{
+			Vec4 color=v_color[i]*255+Vec4(0.5f,0.5f,0.5f,0.5f);
+			pen.setColor(QColor(color(0),color(1),color(2)));
+			painter.setPen(pen);
+			//QPointF(tlist[i][0]+0.5f,tlist[i][1]+0.5f)
+			painter.drawPoint(tlist[i][0],tlist[i][1]);
+		}
+		//painter.drawPoint(QPointF(tlist[1][0],tlist[1][1]));
+		//painter.drawPoint(QPointF(tlist[2][0],tlist[2][1]));
 	}
 
 	int ObjectMesh::cull_object(const Camera& pCam,int cull_flags)

@@ -79,12 +79,12 @@ static const uint qt_meta_data_SoftRender[] = {
        8,    0,   95,    2, 0x0a,
        9,    0,   96,    2, 0x0a,
       10,    0,   97,    2, 0x0a,
-      11,    0,   98,    2, 0x0a,
-      12,    0,   99,    2, 0x0a,
-      13,    0,  100,    2, 0x0a,
-      14,    0,  101,    2, 0x0a,
-      15,    0,  102,    2, 0x0a,
-      16,    0,  103,    2, 0x0a,
+      11,    1,   98,    2, 0x0a,
+      12,    0,  101,    2, 0x0a,
+      13,    0,  102,    2, 0x0a,
+      14,    0,  103,    2, 0x0a,
+      15,    0,  104,    2, 0x0a,
+      16,    0,  105,    2, 0x0a,
 
  // slots: parameters
     QMetaType::Void,
@@ -96,7 +96,7 @@ static const uint qt_meta_data_SoftRender[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -120,7 +120,7 @@ void SoftRender::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->WireFrameCheck(); break;
         case 7: _t->VertexCheck(); break;
         case 8: _t->TextureCheck(); break;
-        case 9: _t->loadCube(); break;
+        case 9: _t->loadCube((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->loadViolin(); break;
         case 11: _t->loadSphere(); break;
         case 12: _t->loadRec(); break;
@@ -129,7 +129,6 @@ void SoftRender::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject SoftRender::staticMetaObject = {

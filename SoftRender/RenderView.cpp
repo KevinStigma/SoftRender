@@ -204,7 +204,8 @@ void RenderView::lighting_compute(zyk::RenderList&render_list)
 				float diff_val=poly.v_normal[j].dot(light_dir_cam);
 				Vec3 r_vec=-light_dir_cam+2*light_dir_cam.dot(poly.v_normal[j])*poly.v_normal[j];
 				Vec3 view_vec=Vec3(-poly.tlist[j](0),-poly.tlist[j](1),-poly.tlist[j](2));
-				float spec_val=pow(max(view_vec.dot(r_vec),0.0f),1)*max(diff_val,0.0f);
+				view_vec.normalize();
+				float spec_val=pow(max(view_vec.dot(r_vec),0.0f),1.0f);
 
 				if(draw_texture&&poly.mat_ptr->texture.data)
 				{
@@ -218,8 +219,8 @@ void RenderView::lighting_compute(zyk::RenderList&render_list)
 				else
 				{
 					color=dot_multV4(material->ka*material->ra,light.c_ambient)+
-						dot_multV4(max(diff_val,0.0f)*light.c_diffuse,material->kd*material->rd)
-						+dot_multV4(spec_val*light.c_specular,material->ks*material->rs);
+						dot_multV4(max(diff_val,0.0f)*light.c_diffuse,material->kd*material->rd)+
+						dot_multV4(spec_val*light.c_specular,material->ks*material->rs);
 				}
 				color_clip(color);
 				poly.v_color[j]=color;
@@ -410,6 +411,7 @@ void RenderView::per_2_viewport(zyk::RenderList& render_list)
 		zyk::PolyFace& poly_face=render_list.plist[i];
 		for(int j=0;j<3;j++)
 		{
+			//poly_face.tlist[j]=global_sys->m_cam.mscr*poly_face.tlist[j];
 			Vec4& vert=poly_face.tlist[j];
 			vert(0)=(vert(0)+1)*alpha-0.5f;
 			vert(1)=pCam.viewport_height-1-((vert(1)+1)*beta-0.5f);
@@ -697,13 +699,14 @@ void RenderView::Draw_Bottom_Tri_ZB(Vec3& v1,Vec3& v2,Vec3& v3,const Vec4 pColor
 	int y_start,y_end,y_id;
 	Vec4 temp_c;
 	Vec4 start_c,end_c,dcdy_left,dcdy_right,dcdx;
-	Vec4 color1=pColor[0],color2=pColor[1],color3=pColor[2];
-
+	
 	float x1,x2,x3,y1,y2,y3,z1,z2,z3;
 	x1=v1(0);y1=v1(1);z1=v1(2);
 	x2=v2(0);y2=v2(1);z2=v2(2);
 	x3=v3(0);y3=v3(1);z3=v3(2);
 
+	Vec4 color1=pColor[0],color2=pColor[1],color3=pColor[2];
+	Vec4 f_color=pColor[0];//flat shading color
 	if(x2>x3)
 	{
 		SWAP(x2,x3,temp);
@@ -816,8 +819,8 @@ void RenderView::Draw_Bottom_Tri_ZB(Vec3& v1,Vec3& v2,Vec3& v3,const Vec4 pColor
 			}
 			else
 			{
-				zyk::clip_0_to_1(color1);
-				Vec4 color=color1*255.0f+Vec4(0.5f,0.5f,0.5f,0.0f);
+				zyk::clip_0_to_1(f_color);
+				Vec4 color=f_color*255.0f+Vec4(0.5f,0.5f,0.5f,0.0f);
 				dest_buffer[x].x=color(0);
 				dest_buffer[x].y=color(1);
 				dest_buffer[x].z=color(2);
@@ -833,13 +836,14 @@ void RenderView::Draw_Top_Tri_ZB(Vec3& v1,Vec3&v2,Vec3& v3,const Vec4 pColor[],z
 	float dzdy_left,dzdy_right,dzdx,z_start,z_end;
 	Vec4 temp_c;
 	Vec4 start_c,end_c,dcdy_left,dcdy_right,dcdx;
-	Vec4 color1=pColor[0],color2=pColor[1],color3=pColor[2];
 
 	float x1,x2,x3,y1,y2,y3,z1,z2,z3;
 	x1=v1(0);y1=v1(1);z1=v1(2);
 	x2=v2(0);y2=v2(1);z2=v2(2);
 	x3=v3(0);y3=v3(1);z3=v3(2);
 
+	Vec4 color1=pColor[0],color2=pColor[1],color3=pColor[2];
+	Vec4 f_color=pColor[0];
 	if(x1>x2)
 	{
 		SWAP(x1,x2,temp);
@@ -957,8 +961,8 @@ void RenderView::Draw_Top_Tri_ZB(Vec3& v1,Vec3&v2,Vec3& v3,const Vec4 pColor[],z
 			}
 			else
 			{
-				zyk::clip_0_to_1(color1);
-				Vec4 color=color1*255.0f+Vec4(0.5f,0.5f,0.5f,0.0f);
+				zyk::clip_0_to_1(f_color);
+				Vec4 color=f_color*255.0f+Vec4(0.5f,0.5f,0.5f,0.0f);
 				dest_buffer[x].x=color(0);
 				dest_buffer[x].y=color(1);
 				dest_buffer[x].z=color(2);

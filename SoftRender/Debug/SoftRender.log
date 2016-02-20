@@ -1,35 +1,15 @@
-﻿生成启动时间为 2016/2/14 16:38:18。
+﻿生成启动时间为 2016/2/19 16:41:58。
      1>项目“F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\SoftRender\SoftRender.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\SoftRender.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        CustomBuild:
-         Moc'ing RenderView.h...
+         所有输出均为最新。
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /ID:\QT\5.2.0\msvc2010_opengl\include /I.\GeneratedFiles\Debug /ID:\QT\5.2.0\msvc2010_opengl\include\QtCore /ID:\QT\5.2.0\msvc2010_opengl\include\QtGui /ID:\QT\5.2.0\msvc2010_opengl\include\QtOpenGL /ID:\QT\5.2.0\msvc2010_opengl\include\QtWidgets /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\Debug\moc_RenderView.cpp GeneratedFiles\Debug\moc_softrender.cpp RenderView.cpp main.cpp softrender.cpp
-         moc_RenderView.cpp
-         moc_softrender.cpp
-         RenderView.cpp
-         main.cpp
-         softrender.cpp
-         正在生成代码...
+         所有输出均为最新。
          所有输出均为最新。
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\\SoftRender.exe" /NOLOGO /LIBPATH:D:\QT\5.2.0\msvc2010_opengl\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5OpenGLd.lib opengl32.lib glu32.lib Qt5Widgetsd.lib d3d11.lib d3dx11d.lib D3DCompiler.lib dxerr.lib dxgi.lib dxguid.lib opencv_ml2410d.lib opencv_calib3d2410d.lib opencv_contrib2410d.lib opencv_core2410d.lib opencv_features2d2410d.lib opencv_flann2410d.lib opencv_gpu2410d.lib opencv_highgui2410d.lib opencv_imgproc2410d.lib opencv_legacy2410d.lib opencv_objdetect2410d.lib opencv_ts2410d.lib opencv_video2410d.lib opencv_nonfree2410d.lib opencv_ocl2410d.lib opencv_photo2410d.lib opencv_stitching2410d.lib opencv_superres2410d.lib opencv_videostab2410d.lib opencv_objdetect2410.lib opencv_ts2410.lib opencv_video2410.lib opencv_nonfree2410.lib opencv_ocl2410.lib opencv_photo2410.lib opencv_stitching2410.lib opencv_superres2410.lib opencv_videostab2410.lib opencv_calib3d2410.lib opencv_contrib2410.lib opencv_core2410.lib opencv_features2d2410.lib opencv_flann2410.lib opencv_gpu2410.lib opencv_highgui2410.lib opencv_imgproc2410.lib opencv_legacy2410.lib opencv_ml2410.lib winmm.lib d3dx9d.lib d3dx10d.lib d3d9.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SoftRender.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\SoftRender.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\SoftRender.lib" /MACHINE:X86 Debug\ArcBall.obj
-         Debug\CPARSERV1.obj
-         Debug\Data_structure.obj
-         Debug\moc_RenderView.obj
-         Debug\moc_softrender.obj
-         Debug\qrc_softrender.obj
-         Debug\GlobalSys.obj
-         Debug\Image.obj
-         Debug\main.obj
-         Debug\MyArcball.obj
-         Debug\RenderView.obj
-         Debug\softrender.obj
-         LINK : 没有找到 F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\\SoftRender.exe 或上一个增量链接没有生成它；正在执行完全链接
+         所有输出均为最新。
          SoftRender.vcxproj -> F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\SoftRender.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"F:\我的文档\Visual Studio 2010\Projects\MyCode for 3D game programming\SoftRender\SoftRender\Win32\Debug\\SoftRender.exe;#1" /manifest Debug\SoftRender.exe.intermediate.manifest
        FinalizeBuildStatus:
          正在删除文件“Debug\SoftRender.unsuccessfulbuild”。
          正在对“Debug\SoftRender.lastbuildstate”执行 Touch 任务。
@@ -37,4 +17,4 @@
 
 生成成功。
 
-已用时间 00:00:17.31
+已用时间 00:00:00.16

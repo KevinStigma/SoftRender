@@ -6,6 +6,7 @@ SoftRender::SoftRender(QWidget *parent)
 	: QMainWindow(parent)
 {
 	global_sys=new GlobalSys();
+	
 	ui.setupUi(this);
 	connect(ui.DefineButton,SIGNAL(clicked()),this,SLOT(setCameraAttrib()));
 	connect(ui.BackFaceCheck,SIGNAL(clicked()),this,SLOT(setBackface()));
